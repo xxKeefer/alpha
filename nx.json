@@ -41,10 +41,25 @@
     "api": {
       "tags": []
     },
-    "api-interfaces": {
+    "controllers-auth": {
+      "tags": []
+    },
+    "controllers-users": {
+      "tags": []
+    },
+    "interfaces-api": {
+      "tags": []
+    },
+    "interfaces-users": {
       "tags": []
     },
     "routes-api": {
+      "tags": []
+    },
+    "routes-auth": {
+      "tags": []
+    },
+    "routes-users": {
       "tags": []
     },
     "shared-form-components": {
@@ -59,6 +74,9 @@
     "tryst-e2e": {
       "tags": [],
       "implicitDependencies": ["tryst"]
+    },
+    "utilities-users": {
+      "tags": []
     }
   }
 }

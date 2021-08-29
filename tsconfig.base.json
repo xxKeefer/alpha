@@ -16,10 +16,16 @@
     "baseUrl": ".",
     "paths": {
       "@tryst/admin-tryst/pages": ["libs/admin-tryst/pages/src/index.ts"],
-      "@tryst/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@tryst/controllers/auth": ["libs/controllers/auth/src/index.ts"],
+      "@tryst/controllers/users": ["libs/controllers/users/src/index.ts"],
+      "@tryst/interfaces/api": ["libs/interfaces/api/src/index.ts"],
+      "@tryst/interfaces/users": ["libs/interfaces/users/src/index.ts"],
       "@tryst/routes/api": ["libs/routes/api/src/index.ts"],
+      "@tryst/routes/auth": ["libs/routes/auth/src/index.ts"],
+      "@tryst/routes/users": ["libs/routes/users/src/index.ts"],
       "@tryst/shared/form-components": ["libs/shared/form-components/src/index.ts"],
-      "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@tryst/utilities/users": ["libs/utilities/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
