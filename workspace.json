@@ -1,6 +1,107 @@
 {
   "version": 2,
   "projects": {
+    "admin-tryst": {
+      "root": "apps/admin-tryst",
+      "sourceRoot": "apps/admin-tryst/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/admin-tryst",
+            "index": "apps/admin-tryst/src/index.html",
+            "main": "apps/admin-tryst/src/main.tsx",
+            "polyfills": "apps/admin-tryst/src/polyfills.ts",
+            "tsConfig": "apps/admin-tryst/tsconfig.app.json",
+            "assets": [
+              "apps/admin-tryst/src/favicon.ico",
+              "apps/admin-tryst/src/assets"
+            ],
+            "styles": ["apps/admin-tryst/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin-tryst/src/environments/environment.ts",
+                  "with": "apps/admin-tryst/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "admin-tryst:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-tryst:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-tryst/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/admin-tryst"],
+          "options": {
+            "jestConfig": "apps/admin-tryst/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-tryst-e2e": {
+      "root": "apps/admin-tryst-e2e",
+      "sourceRoot": "apps/admin-tryst-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-tryst-e2e/cypress.json",
+            "devServerTarget": "admin-tryst:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-tryst:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-tryst-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
