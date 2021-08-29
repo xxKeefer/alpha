@@ -1,58 +1,61 @@
 {
-  "npmScope": "tryst",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "tryst",
+    "affected": {
+        "defaultBase": "master"
     },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "MmVhZDgzZmQtNTkzZC00ZmRiLWEwOWYtNjVjYmNmNzE5MzFhfHJlYWQtd3JpdGU="
-      }
+    "implicitDependencies": {
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        ".eslintrc.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/nx-cloud",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"],
+                "accessToken": "MmVhZDgzZmQtNTkzZC00ZmRiLWEwOWYtNjVjYmNmNzE5MzFhfHJlYWQtd3JpdGU="
+            }
+        }
+    },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "dependencies"
+            }
+        ]
+    },
+    "projects": {
+        "admin-tryst": {
+            "tags": []
+        },
+        "admin-tryst-e2e": {
+            "tags": [],
+            "implicitDependencies": ["admin-tryst"]
+        },
+        "admin-tryst-pages": {
+            "tags": []
+        },
+        "api": {
+            "tags": []
+        },
+        "api-interfaces": {
+            "tags": []
+        },
+        "shared-form-components": {
+            "tags": []
+        },
+        "shared-ui": {
+            "tags": []
+        },
+        "tryst": {
+            "tags": []
+        },
+        "tryst-e2e": {
+            "tags": [],
+            "implicitDependencies": ["tryst"]
+        }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
-  "projects": {
-    "admin-tryst": {
-      "tags": []
-    },
-    "admin-tryst-e2e": {
-      "tags": [],
-      "implicitDependencies": ["admin-tryst"]
-    },
-    "admin-tryst-pages": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    },
-    "api-interfaces": {
-      "tags": []
-    },
-    "shared-ui": {
-      "tags": []
-    },
-    "tryst": {
-      "tags": []
-    },
-    "tryst-e2e": {
-      "tags": [],
-      "implicitDependencies": ["tryst"]
-    }
-  }
 }
