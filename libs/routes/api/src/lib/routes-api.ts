@@ -1,6 +1,7 @@
 import { Message } from '@tryst/interfaces/api'
 import { Router } from 'express'
 import { router as Users } from '@tryst/routes/users'
+import { router as Auth } from '@tryst/routes/auth'
 
 // import { router as example } from './routes/example'
 
@@ -17,3 +18,4 @@ router.get('/', (req, res) => {
 
 // ROUTES
 router.use('/users', Users)
+router.use('/auth', Auth)
