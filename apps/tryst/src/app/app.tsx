@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Message } from '@alpha/api-interfaces';
+import { Message } from '@tryst/api-interfaces';
 
 export const App = () => {
   const [m, setMessage] = useState<Message>({ message: '' });

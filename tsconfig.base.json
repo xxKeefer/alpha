@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@alpha/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@tryst/admin-tryst/pages": ["libs/admin-tryst/pages/src/index.ts"],
+      "@tryst/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

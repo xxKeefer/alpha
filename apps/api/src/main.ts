@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { Message } from '@alpha/api-interfaces';
+import { Message } from '@tryst/api-interfaces';
 
 const app = express();
 

@@ -1,5 +1,5 @@
 {
-  "npmScope": "alpha",
+  "npmScope": "tryst",
   "affected": {
     "defaultBase": "master"
   },
@@ -35,10 +35,16 @@
       "tags": [],
       "implicitDependencies": ["admin-tryst"]
     },
+    "admin-tryst-pages": {
+      "tags": []
+    },
     "api": {
       "tags": []
     },
     "api-interfaces": {
+      "tags": []
+    },
+    "shared-ui": {
       "tags": []
     },
     "tryst": {
