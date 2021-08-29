@@ -1,352 +1,370 @@
 {
-    "version": 2,
-    "projects": {
-        "admin-tryst": {
-            "root": "apps/admin-tryst",
-            "sourceRoot": "apps/admin-tryst/src",
-            "projectType": "application",
-            "targets": {
-                "build": {
-                    "executor": "@nrwl/web:build",
-                    "outputs": ["{options.outputPath}"],
-                    "options": {
-                        "outputPath": "dist/apps/admin-tryst",
-                        "index": "apps/admin-tryst/src/index.html",
-                        "main": "apps/admin-tryst/src/main.tsx",
-                        "polyfills": "apps/admin-tryst/src/polyfills.ts",
-                        "tsConfig": "apps/admin-tryst/tsconfig.app.json",
-                        "assets": [
-                            "apps/admin-tryst/src/favicon.ico",
-                            "apps/admin-tryst/src/assets"
-                        ],
-                        "styles": ["apps/admin-tryst/src/styles.css"],
-                        "scripts": [],
-                        "webpackConfig": "@nrwl/react/plugins/webpack"
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/admin-tryst/src/environments/environment.ts",
-                                    "with": "apps/admin-tryst/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@nrwl/web:dev-server",
-                    "options": {
-                        "buildTarget": "admin-tryst:build",
-                        "hmr": true
-                    },
-                    "configurations": {
-                        "production": {
-                            "buildTarget": "admin-tryst:build:production",
-                            "hmr": false
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/admin-tryst/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/admin-tryst"],
-                    "options": {
-                        "jestConfig": "apps/admin-tryst/jest.config.js",
-                        "passWithNoTests": true
-                    }
+  "version": 2,
+  "projects": {
+    "admin-tryst": {
+      "root": "apps/admin-tryst",
+      "sourceRoot": "apps/admin-tryst/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/admin-tryst",
+            "index": "apps/admin-tryst/src/index.html",
+            "main": "apps/admin-tryst/src/main.tsx",
+            "polyfills": "apps/admin-tryst/src/polyfills.ts",
+            "tsConfig": "apps/admin-tryst/tsconfig.app.json",
+            "assets": ["apps/admin-tryst/src/favicon.ico", "apps/admin-tryst/src/assets"],
+            "styles": ["apps/admin-tryst/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin-tryst/src/environments/environment.ts",
+                  "with": "apps/admin-tryst/src/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
             }
+          }
         },
-        "admin-tryst-e2e": {
-            "root": "apps/admin-tryst-e2e",
-            "sourceRoot": "apps/admin-tryst-e2e/src",
-            "projectType": "application",
-            "targets": {
-                "e2e": {
-                    "executor": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/admin-tryst-e2e/cypress.json",
-                        "devServerTarget": "admin-tryst:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "admin-tryst:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/admin-tryst-e2e/**/*.{js,ts}"]
-                    }
-                }
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "admin-tryst:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-tryst:build:production",
+              "hmr": false
             }
+          }
         },
-        "admin-tryst-pages": {
-            "root": "libs/admin-tryst/pages",
-            "sourceRoot": "libs/admin-tryst/pages/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/admin-tryst/pages/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/admin-tryst/pages"],
-                    "options": {
-                        "jestConfig": "libs/admin-tryst/pages/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-tryst/**/*.{ts,tsx,js,jsx}"]
+          }
         },
-        "api": {
-            "root": "apps/api",
-            "sourceRoot": "apps/api/src",
-            "projectType": "application",
-            "targets": {
-                "build": {
-                    "executor": "@nrwl/node:build",
-                    "outputs": ["{options.outputPath}"],
-                    "options": {
-                        "outputPath": "dist/apps/api",
-                        "main": "apps/api/src/main.ts",
-                        "tsConfig": "apps/api/tsconfig.app.json",
-                        "assets": ["apps/api/src/assets"]
-                    },
-                    "configurations": {
-                        "production": {
-                            "optimization": true,
-                            "extractLicenses": true,
-                            "inspect": false,
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/api/src/environments/environment.ts",
-                                    "with": "apps/api/src/environments/environment.prod.ts"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@nrwl/node:execute",
-                    "options": {
-                        "buildTarget": "api:build"
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/api/**/*.ts"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/api"],
-                    "options": {
-                        "jestConfig": "apps/api/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "api-interfaces": {
-            "root": "libs/api-interfaces",
-            "sourceRoot": "libs/api-interfaces/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
-                    }
-                }
-            }
-        },
-        "shared-form-components": {
-            "root": "libs/shared/form-components",
-            "sourceRoot": "libs/shared/form-components/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/shared/form-components/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/shared/form-components"],
-                    "options": {
-                        "jestConfig": "libs/shared/form-components/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "shared-ui": {
-            "root": "libs/shared/ui",
-            "sourceRoot": "libs/shared/ui/src",
-            "projectType": "library",
-            "targets": {
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["libs/shared/ui/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/shared/ui"],
-                    "options": {
-                        "jestConfig": "libs/shared/ui/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "tryst": {
-            "root": "apps/tryst",
-            "sourceRoot": "apps/tryst/src",
-            "projectType": "application",
-            "targets": {
-                "build": {
-                    "executor": "@nrwl/web:build",
-                    "outputs": ["{options.outputPath}"],
-                    "options": {
-                        "outputPath": "dist/apps/tryst",
-                        "index": "apps/tryst/src/index.html",
-                        "main": "apps/tryst/src/main.tsx",
-                        "polyfills": "apps/tryst/src/polyfills.ts",
-                        "tsConfig": "apps/tryst/tsconfig.app.json",
-                        "assets": ["apps/tryst/src/favicon.ico", "apps/tryst/src/assets"],
-                        "styles": ["apps/tryst/src/styles.css"],
-                        "scripts": [],
-                        "webpackConfig": "@nrwl/react/plugins/webpack"
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/tryst/src/environments/environment.ts",
-                                    "with": "apps/tryst/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "executor": "@nrwl/web:dev-server",
-                    "options": {
-                        "buildTarget": "tryst:build",
-                        "hmr": true,
-                        "proxyConfig": "apps/tryst/proxy.conf.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "buildTarget": "tryst:build:production",
-                            "hmr": false
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/tryst/**/*.{ts,tsx,js,jsx}"]
-                    }
-                },
-                "test": {
-                    "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/apps/tryst"],
-                    "options": {
-                        "jestConfig": "apps/tryst/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "tryst-e2e": {
-            "root": "apps/tryst-e2e",
-            "sourceRoot": "apps/tryst-e2e/src",
-            "projectType": "application",
-            "targets": {
-                "e2e": {
-                    "executor": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/tryst-e2e/cypress.json",
-                        "devServerTarget": "tryst:serve",
-                        "tsConfig": "apps/tryst-e2e/tsconfig.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "tryst:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/tryst-e2e/**/*.{js,ts}"]
-                    }
-                }
-            }
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/admin-tryst"],
+          "options": {
+            "jestConfig": "apps/admin-tryst/jest.config.js",
+            "passWithNoTests": true
+          }
         }
+      }
     },
-    "cli": {
-        "defaultCollection": "@nrwl/react"
-    },
-    "generators": {
-        "@nrwl/react": {
-            "application": {
-                "style": "css",
-                "linter": "eslint",
-                "babel": true
-            },
-            "component": {
-                "style": "css"
-            },
-            "library": {
-                "style": "css",
-                "linter": "eslint"
+    "admin-tryst-e2e": {
+      "root": "apps/admin-tryst-e2e",
+      "sourceRoot": "apps/admin-tryst-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-tryst-e2e/cypress.json",
+            "devServerTarget": "admin-tryst:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-tryst:serve:production"
             }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-tryst-e2e/**/*.{js,ts}"]
+          }
         }
+      }
     },
-    "defaultProject": "tryst"
+    "admin-tryst-pages": {
+      "root": "libs/admin-tryst/pages",
+      "sourceRoot": "libs/admin-tryst/pages/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/admin-tryst/pages/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin-tryst/pages"],
+          "options": {
+            "jestConfig": "libs/admin-tryst/pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+          }
+        }
+      }
+    },
+    "routes-api": {
+      "root": "libs/routes/api",
+      "sourceRoot": "libs/routes/api/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/routes/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/routes/api"],
+          "options": {
+            "jestConfig": "libs/routes/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-form-components": {
+      "root": "libs/shared/form-components",
+      "sourceRoot": "libs/shared/form-components/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/form-components/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/form-components"],
+          "options": {
+            "jestConfig": "libs/shared/form-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-ui": {
+      "root": "libs/shared/ui",
+      "sourceRoot": "libs/shared/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/ui"],
+          "options": {
+            "jestConfig": "libs/shared/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tryst": {
+      "root": "apps/tryst",
+      "sourceRoot": "apps/tryst/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/tryst",
+            "index": "apps/tryst/src/index.html",
+            "main": "apps/tryst/src/main.tsx",
+            "polyfills": "apps/tryst/src/polyfills.ts",
+            "tsConfig": "apps/tryst/tsconfig.app.json",
+            "assets": ["apps/tryst/src/favicon.ico", "apps/tryst/src/assets"],
+            "styles": ["apps/tryst/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tryst/src/environments/environment.ts",
+                  "with": "apps/tryst/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "tryst:build",
+            "hmr": true,
+            "proxyConfig": "apps/tryst/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "tryst:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/tryst/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/tryst"],
+          "options": {
+            "jestConfig": "apps/tryst/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tryst-e2e": {
+      "root": "apps/tryst-e2e",
+      "sourceRoot": "apps/tryst-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tryst-e2e/cypress.json",
+            "devServerTarget": "tryst:serve",
+            "tsConfig": "apps/tryst-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tryst:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/tryst-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "tryst"
 }

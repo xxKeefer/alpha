@@ -1,25 +1,26 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "rootDir": ".",
-        "sourceMap": true,
-        "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "esnext",
-        "lib": ["es2017", "dom"],
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@tryst/admin-tryst/pages": ["libs/admin-tryst/pages/src/index.ts"],
-            "@tryst/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-            "@tryst/shared/form-components": ["libs/shared/form-components/src/index.ts"],
-            "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"]
-        }
-    },
-    "exclude": ["node_modules", "tmp"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tryst/admin-tryst/pages": ["libs/admin-tryst/pages/src/index.ts"],
+      "@tryst/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@tryst/routes/api": ["libs/routes/api/src/index.ts"],
+      "@tryst/shared/form-components": ["libs/shared/form-components/src/index.ts"],
+      "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }
