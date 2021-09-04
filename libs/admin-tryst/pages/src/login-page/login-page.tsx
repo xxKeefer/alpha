@@ -15,7 +15,7 @@ export const LoginPage = () => {
             </Heading>
           </Stack>
         </Center>
-        <FormCard></FormCard>
+        <FormCard />
       </Box>
     </Center>
   )

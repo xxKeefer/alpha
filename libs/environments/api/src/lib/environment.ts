@@ -1,3 +1,7 @@
 export const environment = {
   production: false,
-};
+  refresh_secret:
+    '65e9ce2d7cb4e95f61ead2ea269d2ffc8010c3e7cc24314f923872751d5051c9dfcf741456267f8d1b5bb2876ec0f2193e963da4174123d22152388e97c049a2',
+  access_secret:
+    'd5f72db199a9701310265ee1e3261c4f412b919b4e8dd7933980cdf20a7fa466ed31b4fef1e296a2263a7e58e6fffe7ee13dfb24bdf9b5780102dd6441ce1442'
+}
