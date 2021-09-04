@@ -23,6 +23,7 @@
       "@tryst/environments/tryst": ["libs/environments/tryst/src/index.ts"],
       "@tryst/interfaces/api": ["libs/interfaces/api/src/index.ts"],
       "@tryst/interfaces/users": ["libs/interfaces/users/src/index.ts"],
+      "@tryst/middleware/auth": ["libs/middleware/auth/src/index.ts"],
       "@tryst/routes/api": ["libs/routes/api/src/index.ts"],
       "@tryst/routes/auth": ["libs/routes/auth/src/index.ts"],
       "@tryst/routes/users": ["libs/routes/users/src/index.ts"],
