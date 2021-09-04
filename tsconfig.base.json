@@ -30,7 +30,8 @@
       "@tryst/shared/form-components": ["libs/shared/form-components/src/index.ts"],
       "@tryst/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@tryst/utilities/users": ["libs/utilities/users/src/index.ts"]
-    }
+    },
+    "typeRoots": ["./types"]
   },
   "exclude": ["node_modules", "tmp"]
 }
