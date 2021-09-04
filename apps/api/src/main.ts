@@ -1,9 +1,12 @@
 import * as express from 'express'
 import * as cors from 'cors'
+import * as cookieParser from 'cookie-parser'
 import { router as MainRouter } from '@tryst/routes/api'
 
 const app = express()
+app.use(cookieParser())
 app.use(express.json({ limit: '20mb' }))
+app.use(express.urlencoded({ limit: '20mb', extended: false }))
 
 //CORS config
 const whitelist = ['http://localhost:4200']

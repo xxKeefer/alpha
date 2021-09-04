@@ -341,6 +341,27 @@
         }
       }
     },
+    "middleware-auth": {
+      "root": "libs/middleware/auth",
+      "sourceRoot": "libs/middleware/auth/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/middleware/auth/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/middleware/auth"],
+          "options": {
+            "jestConfig": "libs/middleware/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "routes-api": {
       "root": "libs/routes/api",
       "sourceRoot": "libs/routes/api/src",

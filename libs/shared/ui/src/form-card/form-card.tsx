@@ -14,6 +14,7 @@ const LoginSchema = yup.object().shape({
 
 const api = axios.create({
   baseURL: 'http://localhost:3333/api',
+
   withCredentials: true
 })
 

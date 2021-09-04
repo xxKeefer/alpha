@@ -62,6 +62,9 @@
     "interfaces-users": {
       "tags": []
     },
+    "middleware-auth": {
+      "tags": []
+    },
     "routes-api": {
       "tags": []
     },
