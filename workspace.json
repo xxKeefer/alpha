@@ -26,6 +26,18 @@
                 {
                   "replace": "apps/admin-tryst/src/environments/environment.ts",
                   "with": "apps/admin-tryst/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/api/src/lib/environment.ts",
+                  "with": "libs/environments/api/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/tryst/src/lib/environment.ts",
+                  "with": "libs/environments/tryst/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/admin-tryst/src/lib/environment.ts",
+                  "with": "libs/environments/admin-tryst/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -143,6 +155,18 @@
                 {
                   "replace": "apps/api/src/environments/environment.ts",
                   "with": "apps/api/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/api/src/lib/environment.ts",
+                  "with": "libs/environments/api/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/tryst/src/lib/environment.ts",
+                  "with": "libs/environments/tryst/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/admin-tryst/src/lib/environment.ts",
+                  "with": "libs/environments/admin-tryst/src/lib/environment.prod.ts"
                 }
               ]
             }
@@ -207,6 +231,69 @@
           "outputs": ["coverage/libs/controllers/users"],
           "options": {
             "jestConfig": "libs/controllers/users/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "environments-admin-tryst": {
+      "root": "libs/environments/admin-tryst",
+      "sourceRoot": "libs/environments/admin-tryst/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/environments/admin-tryst/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/environments/admin-tryst"],
+          "options": {
+            "jestConfig": "libs/environments/admin-tryst/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "environments-api": {
+      "root": "libs/environments/api",
+      "sourceRoot": "libs/environments/api/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/environments/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/environments/api"],
+          "options": {
+            "jestConfig": "libs/environments/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "environments-tryst": {
+      "root": "libs/environments/tryst",
+      "sourceRoot": "libs/environments/tryst/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/environments/tryst/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/environments/tryst"],
+          "options": {
+            "jestConfig": "libs/environments/tryst/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -384,6 +471,18 @@
                 {
                   "replace": "apps/tryst/src/environments/environment.ts",
                   "with": "apps/tryst/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/api/src/lib/environment.ts",
+                  "with": "libs/environments/api/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/tryst/src/lib/environment.ts",
+                  "with": "libs/environments/tryst/src/lib/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/environments/admin-tryst/src/lib/environment.ts",
+                  "with": "libs/environments/admin-tryst/src/lib/environment.prod.ts"
                 }
               ],
               "optimization": true,

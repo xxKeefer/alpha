@@ -47,6 +47,15 @@
     "controllers-users": {
       "tags": []
     },
+    "environments-admin-tryst": {
+      "tags": []
+    },
+    "environments-api": {
+      "tags": []
+    },
+    "environments-tryst": {
+      "tags": []
+    },
     "interfaces-api": {
       "tags": []
     },
