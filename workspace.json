@@ -194,6 +194,27 @@
         }
       }
     },
+    "components-jwt-gate": {
+      "root": "libs/components/jwt-gate",
+      "sourceRoot": "libs/components/jwt-gate/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/components/jwt-gate/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/jwt-gate"],
+          "options": {
+            "jestConfig": "libs/components/jwt-gate/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "controllers-auth": {
       "root": "libs/controllers/auth",
       "sourceRoot": "libs/controllers/auth/src",
