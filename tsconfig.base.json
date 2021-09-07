@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@tryst/admin-tryst/pages": ["libs/admin-tryst/pages/src/index.ts"],
+      "@tryst/components/auth-context": ["libs/components/auth-context/src/index.ts"],
       "@tryst/components/jwt-gate": ["libs/components/jwt-gate/src/index.ts"],
       "@tryst/controllers/auth": ["libs/controllers/auth/src/index.ts"],
       "@tryst/controllers/users": ["libs/controllers/users/src/index.ts"],

@@ -16,13 +16,16 @@ export const login = async (req: Request, res: Response) => {
     const verified = await verifyPassword(password, user.password)
     if (!verified) return res.status(403).json({ message: 'Denied access' } as ApiError)
 
-    delete user.password
-    const accessToken = jwt.sign(user, env.access_secret, { expiresIn: '10m' })
-    const refreshToken = jwt.sign(user, env.refresh_secret, { expiresIn: '7d' })
+    // delete user.password
+    const _email = user.email
+    const accessToken = jwt.sign({ email: _email }, env.access_secret, { expiresIn: '10m' })
+    const refreshToken = jwt.sign({ email: _email }, env.refresh_secret, { expiresIn: '7d' })
     res.cookie('refresh_token', refreshToken, { httpOnly: true })
 
-    return res.status(200).json({ user, accessToken })
+    return res.status(200).json({ email: _email, accessToken })
   } catch (error) {
+    console.log({ error })
+
     return res.status(500).json({ message: 'Something went wrong', error } as ApiError)
   }
 }

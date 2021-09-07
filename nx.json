@@ -41,6 +41,9 @@
     "api": {
       "tags": []
     },
+    "components-auth-context": {
+      "tags": []
+    },
     "components-jwt-gate": {
       "tags": []
     },

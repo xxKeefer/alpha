@@ -1,10 +1,8 @@
 import { Route, Redirect, RouteProps, useLocation } from 'react-router-dom'
-import { environment as env } from '@tryst/environments/api'
-import * as jwt from 'jsonwebtoken'
+import jwtDecode, { JwtPayload } from 'jwt-decode'
 
-/* eslint-disable-next-line */
 export interface ComponentsJwtGateProps extends RouteProps {
-  token: string
+  token: string | undefined
   redirect: string
 }
 
@@ -12,20 +10,16 @@ export function JwtGate(props: ComponentsJwtGateProps) {
   const { token, redirect, exact, path, component } = props
   const location = useLocation()
 
+  if (!token) return <Redirect to={{ pathname: redirect, state: { from: location } }} />
+
   try {
-    const payload = jwt.verify(token, env.access_secret)
+    const payload = jwtDecode<JwtPayload>(token)
     console.log({ payload })
 
     return <Route exact={exact} path={path} component={component} />
   } catch (error) {
     return <Redirect to={{ pathname: redirect, state: { from: location } }} />
   }
-
-  return (
-    <div>
-      <h1>Welcome to ComponentsJwtGate!</h1>
-    </div>
-  )
 }
 
 export default JwtGate

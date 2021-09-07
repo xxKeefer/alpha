@@ -6,6 +6,8 @@ import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { Credentials } from '@tryst/interfaces/users'
+import { useHistory } from 'react-router-dom'
+import { useAuth } from '@tryst/components/auth-context'
 
 const LoginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -20,17 +22,30 @@ const api = axios.create({
 
 const initial: Credentials = { email: '', password: '' }
 
+interface AuthResponse {
+  data: {
+    accessToken: string
+    user: {
+      email: string
+    }
+  }
+}
+
 export const FormCard = () => {
+  const history = useHistory()
+  const { setToken, setUser } = useAuth()
   return (
     <Formik
       initialValues={initial}
       validationSchema={LoginSchema}
       onSubmit={async (values, actions) => {
         console.log({ values })
-        const { data } = await api.post('/auth/login', values)
+        const { data } = await api.post<Credentials, AuthResponse>('/auth/login', values)
         console.log({ data })
-
+        setToken(data.accessToken)
+        setUser(data.user)
         actions.setSubmitting(false)
+        history.push('/secure')
       }}
     >
       {({ errors, touched, isSubmitting, handleSubmit, setFieldValue }) => (
