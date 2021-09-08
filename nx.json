@@ -50,6 +50,9 @@
     "controllers-auth": {
       "tags": []
     },
+    "controllers-private": {
+      "tags": []
+    },
     "controllers-users": {
       "tags": []
     },
@@ -75,6 +78,9 @@
       "tags": []
     },
     "routes-auth": {
+      "tags": []
+    },
+    "routes-private": {
       "tags": []
     },
     "routes-users": {

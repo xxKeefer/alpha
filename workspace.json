@@ -257,6 +257,27 @@
         }
       }
     },
+    "controllers-private": {
+      "root": "libs/controllers/private",
+      "sourceRoot": "libs/controllers/private/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/controllers/private/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/controllers/private"],
+          "options": {
+            "jestConfig": "libs/controllers/private/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "controllers-users": {
       "root": "libs/controllers/users",
       "sourceRoot": "libs/controllers/users/src",
@@ -441,6 +462,27 @@
           "outputs": ["coverage/libs/routes/auth"],
           "options": {
             "jestConfig": "libs/routes/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "routes-private": {
+      "root": "libs/routes/private",
+      "sourceRoot": "libs/routes/private/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/routes/private/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/routes/private"],
+          "options": {
+            "jestConfig": "libs/routes/private/jest.config.js",
             "passWithNoTests": true
           }
         }

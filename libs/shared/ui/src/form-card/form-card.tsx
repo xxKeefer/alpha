@@ -74,6 +74,20 @@ export const FormCard = () => {
                 >
                   Login
                 </Button>
+                <Button
+                  colorScheme="purple"
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      const { data } = await api.get('/private')
+                      console.log({ data })
+                    } catch (error) {
+                      console.log({ error })
+                    }
+                  }}
+                >
+                  Send Req to Secure route on API
+                </Button>
               </Stack>
             </Center>
           </Box>
